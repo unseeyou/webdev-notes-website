@@ -1,11 +1,13 @@
 import json
 import os
 from random import shuffle
+from dotenv import load_dotenv
 
 from flask import Flask, render_template, url_for, request, redirect, session
 
+load_dotenv()
 app = Flask(__name__)
-app.secret_key = os.environ["SECRET_KEY"]
+app.secret_key = os.getenv("SECRET_KEY")
 questions = None
 
 

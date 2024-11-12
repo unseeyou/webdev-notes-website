@@ -7,6 +7,8 @@ authors = [
 ]
 dependencies = [
     "flask>=3.0.3",
+    "python-dotenv>=1.0.1",
+    "gunicorn>=23.0.0",
 ]
 requires-python = "==3.12.*"
 readme = "README.md"
@@ -17,4 +19,5 @@ license = {text = "MIT"}
 distribution = false
 
 [tool.pdm.scripts]
-start = "flask run -p 5000"
+install = "pdm install"
+run = "py src/app.py"
