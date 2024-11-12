@@ -74,6 +74,7 @@ def reset_score():
     session["question_index"] = 0
     return redirect(url_for("quiz"))
 
+
 @app.route("/quiz", methods=["GET", "POST"])
 def quiz():
     questions = get_questions()
@@ -95,7 +96,7 @@ def quiz():
     return render_template(
         "question.html",
         question=question,
-        question_num=question_index+1,
+        question_num=question_index + 1,
         total_questions=len(get_questions()),
     )
 
