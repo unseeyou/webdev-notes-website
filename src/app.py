@@ -1,7 +1,8 @@
-from flask import Flask, render_template, url_for, request, redirect, session
-import os
 import json
+import os
 from random import shuffle
+
+from flask import Flask, render_template, url_for, request, redirect, session
 
 app = Flask(__name__)
 app.secret_key = os.environ["SECRET_KEY"]
@@ -86,7 +87,7 @@ def quiz():
             session["score"] += 1
             return redirect(url_for("quiz"))
         else:
-            msg = f"Incorrect! The correct solution was: '{question["answer"]}'."
+            msg = f"Incorrect! The correct solution was '{question["answer"]}'."
             return render_template("templates/feedback.html", feedback=msg)
     shuffle(question["options"])
     return render_template(

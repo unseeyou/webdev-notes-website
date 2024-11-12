@@ -5,7 +5,9 @@ description = "Default template for PDM package"
 authors = [
     {name = "unseeyou", email = "unseeyoubestmod@gmail.com"},
 ]
-dependencies = []
+dependencies = [
+    "flask>=3.0.3",
+]
 requires-python = "==3.12.*"
 readme = "README.md"
 license = {text = "MIT"}
@@ -13,3 +15,6 @@ license = {text = "MIT"}
 
 [tool.pdm]
 distribution = false
+
+[tool.pdm.scripts]
+start = "flask run -p 5000"
