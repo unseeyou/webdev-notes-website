@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Notes - Data Packets{% endblock %}
+{% block content %}
+    <div class="title">
+        <h1>📦 Data Packets</h1>
+        <h3>An informative page about Data packets</h3>
+    </div>
+    <div class="description">
+        <p id="data-packets-desc">
+            When information is sent over the internet or any other modern network, it is sent in the form of packets.
+            They are made by breaking raw data into smaller chunks.
+            By breaking the data into smaller chunks, we can ensure that the information is sent in a more efficient and manageable way.
+            When these smaller chunks of data reach their destination, they are reassembled back into the original data.
+            the International Organization for Standardization (ISO) developed the Open Systems Interconnection (OSI) model,
+            which identifies specific data packet layers and maintains standards for each.
+            These standards form the foundation for the modern use of data packets in diverse network scenarios.
+            <br><br>
+            Error detection is possible through packet headers and checksums, and data packets allow for load balancing and congestion control in networks which in turn improves data transfer speeds. However, packet corruption and loss can still occur and lead to transmission errors, and latency issues may arise from the need to reassemble data packets into complete forms. Overhead from packet headers and other such metadata can increase bandwidth usage that would not be needed or used as much if data was not split into many small chunks and rather all sent in one large chunk.
+        </p>
+    <img src="{{ url_for("static", filename="images/graphic.jpg") }}" alt="cool graphic of the internet"/>
+        </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Notes - Domain Name Systems{% endblock %}
+{% block content %}
+    <div class="title">
+        <h1>🪧 Domain Name Systems (DNS)</h1>
+        <h3>An informative page about Domain Name Systems</h3>
+    </div>
+    <div class="description">
+        <p id="data-packets-desc">
+            Domain name systems are the internet equivalent of a phone book. While each website can technically be connected to by its raw IP address, it is harder to remember than something simpler such as “google.com”.<br><br>
+
+The DNS is organised hierarchically, with a structured naming system to ensure that domain names are unique and globally resolvable. Different parts of the name are separated by “.”s. DNS uses a series of queries and responses to find the correct address for a given name, starting from the root servers that know the top-level domains like .com, .org, .edu, etc. DNS also supports other types of records, such as mail exchange (MX) records that specify the servers that handle email for a domain, or text (TXT) records that provide additional information or verification.<br><br>
+
+Domain Name Systems are great because they provide easy to remember addresses to locations on the internet, are fast as they are part of a high speed internet, and easy to use as all the work to resolve the address of a site is done on the backend. It also allows for techniques to cope with high traffic such as load balancing, where several servers share requests that would not be possible if all the traffic were directed to one IP address. Additionally, the multiple servers serve as backups if one were to fail.<br><br>
+
+Unfortunately, nothing is perfectly secure on the internet, meaning domain name systems are vulnerable to cyberattacks that redirect users who attempt to access the content of a website to the attacker’s specified location. All the DNS servers are controlled by ICANN. ICANN is a non-profit organisation which belongs to one country. This means that if any rules and regulations of the country were to change, then the company policies may also change. Since all DNS servers are connected, errors may be hard to debug as there is a large amount of area where the issue may originate from.<br><br>
+
+        </p>
+        <img src="{{ url_for("static", filename="images/graphic.jpg") }}" alt="cool graphic of the internet"/>
+    </div>
+{% endblock %}

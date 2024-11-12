@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Notes - E-Commerce{% endblock %}
+{% block content %}
+    <div class="title">
+        <h1>💸 E-Commerce</h1>
+        <h3>An informative page about E-Commerce</h3>
+    </div>
+    <div class="description">
+        <p id="ecommerce-desc">
+            Electronic Commerce is a term that describes selling products on a digital market, usually either business-to-business (B2B) or business-to-consumer (B2C). The process begins with a seller (either business or individual) listing their item on an online marketplace such as Amazon or Ebay. The customer (either another business or a direct consumer) finds the product and buys it online. Digital products are delivered to the buyer immediately, while physical products are shipped to the buyer’s chosen address. Consumers are also able to sell directly to one another using intermediaries such as Facebook Marketplace and Ebay, or  even selling directly to a business. For instance, some artists sell their work for display in other businesses, or when photographers sell photos to stock photo companies for use online.
+
+<br><br>Ecommerce is more convenient than physical shopping as you can buy anything ranging from furniture to food just from a smartphone. Listing a product on an online marketplace also allows sellers to include more information about a certain product in a more accessible way than small text or a label next to a price. It is also cheaper for businesses as digital marketplaces do not cost the rent that a physical shop would incur, and has more growth potential as location is not as much of a roadblock compared to physical shops.
+
+<br><br>However, the anonymity that the internet provides leaves more opportunities for malpractice and scamming that a physical shop would not have, leading to a lower level of trust from customers. Instead of looking at a picture of a product that could be doctored or completely fake, a real shop would allow a customer to physically see a product and assess its real world condition before a purchase is made. Advertising would also be harder than in real life where people could simply see a store randomly by walking near it, as the internet as a whole is a much larger ecosystem, so the chances of encountering a digital store is much lower.
+</p>
+        <img src="{{ url_for("static", filename="images/graphic.jpg") }}" alt="cool graphic of the internet"/>
+    </div>
+{% endblock %}

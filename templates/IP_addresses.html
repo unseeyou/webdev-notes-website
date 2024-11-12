@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Notes - IP Addresses{% endblock %}
+{% block content %}
+    <div class="title">
+        <h1>📫 IP Addresses</h1>
+        <h3>An informative page about IP Addresses</h3>
+    </div>
+    <div class="description">
+        <p id="data-packets-desc">
+            Every device connected to the internet is assigned a unique IP address. An IP address (Internet Protocol address) is a unique string of numbers separated by periods (IPv4) or colons (IPv6) that identifies each device connected to a network. It's like a digital address that allows devices to communicate with each other over the internet, ensuring data is sent and received accurately.<br><br>
+
+The two main protocols for IP addresses currently are IPv4 and IPv6. IPv4 is being phased out as there are no longer enough possible combinations to provide a unique identifier for every one. IPv6 was introduced, containing 128 bits where IPv4 only has 32. This means it has 1028 times more possible combinations, sufficient for the increased amount of devices connected to the internet for now. Every device has a private IP address which is assigned by the router. Then the router networks each device with the public internet, all sharing the same public IP given by the ISP (Internet Service Provider) to the router.<br><br>
+While IP addresses provide a great way to store the location of a device in a digital landscape, this also means that the services your internet communicates with will also have access to your digital location, which also gives a rough real world location of where the physical system is. IP addresses can be protected through VPNs and similar products, but they sacrifice a substantial amount of speed for one layer of security, making the tradeoff not worth it for most people.</p>
+        <div class="p-3 text-info-emphasis bg-info-subtle border border-info-subtle rounded-3 example">
+
+    IPv4 Example: 192.16.1.127<br>
+    IPv6 Example: 2001:0db8:85a3:0000:0000:8a2e:0370:7334
+    </div>
+        <img src="{{ url_for("static", filename="images/graphic.jpg") }}" alt="cool graphic of the internet"/>
+    </div>
+{% endblock %}

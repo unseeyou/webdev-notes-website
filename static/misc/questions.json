@@ -1,0 +1,92 @@
+[
+  {
+    "question": "What does the 'S' stand for in HTTPS?",
+    "options": ["Suspicious", "Secure", "Sigma", "Stolen"],
+    "answer": "Secure"
+  },
+  {
+    "question": "Which protocol handles emails?",
+    "options": ["SMTP", "HTTP", "TCP", "SSL"],
+    "answer": "SMTP"
+  },
+  {
+    "question": "What does HTML stand for?",
+    "options": ["HyperText Markup Language", "HyperText Machine Language", "HyperTransfer Markup Language", "Home Tool Markup Language"],
+    "answer": "HyperText Markup Language"
+  },
+  {
+    "question": "What is CSS used for?",
+    "options": ["Styling web pages", "Scripting web pages", "Structuring web pages", "Connecting to databases"],
+    "answer": "Styling web pages"
+  },
+  {
+    "question": "What does API stand for?",
+    "options": ["Application Programming Interface", "Advanced Programming Interface", "Application Process Interface", "Advanced Process Interface"],
+    "answer": "Application Programming Interface"
+  },
+  {
+    "question": "What is the purpose of a database?",
+    "options": ["To store and manage data", "To run web servers", "To style web pages", "To write code"],
+    "answer": "To store and manage data"
+  },
+    {
+    "question": "What is Flask?",
+    "options": ["A micro web framework for Python", "A JavaScript library", "A Python database", "A CSS framework"],
+    "answer": "A micro web framework for Python"
+  },
+  {
+    "question": "What is Jinja2 in the context of web development?",
+    "options": ["A templating engine", "A database system", "A JavaScript framework", "A Python library for handling requests"],
+    "answer": "A templating engine"
+  },
+    {
+    "question": "What does HTTP stand for?",
+    "options": ["Hypertext Transfer Protocol", "Hyperfast Travelling Protocol", "Hypertext Transfer Procedure", "Hypertext Transmission Procedure"],
+    "answer": "Hypertext Transfer Protocol"
+  },
+  {
+    "question": "What does HTTPS add to HTTP?",
+    "options": ["Security", "Speed", "Reliability", "Functionality"],
+    "answer": "Security"
+  },
+  {
+    "question": "What HTTP status code indicates a successful request?",
+    "options": ["200", "404", "500", "301"],
+    "answer": "200"
+  },
+  {
+    "question": "What does a 404 HTTP status code mean?",
+    "options": ["Not Found", "Forbidden", "Bad Request", "Internal Server Error"],
+    "answer": "Not Found"
+  },
+  {
+    "question": "Which protocol is used for SECURE file transfer?",
+    "options": ["FTP", "SFTP", "HTTP", "SMTP"],
+    "answer": "SFTP"
+  },
+    {
+    "question": "What is an IP address?",
+    "options": ["A unique identifier for a device on a network", "A website address", "A type of data packet", "A domain name"],
+    "answer": "A unique identifier for a device on a network"
+  },
+  {
+    "question": "What is a data packet?",
+    "options": ["A unit of data transmitted over a network", "A type of IP address", "A domain name server", "Metadata about a file"],
+    "answer": "A unit of data transmitted over a network"
+  },
+  {
+    "question": "What does DNS stand for?",
+    "options": ["Domain Name System", "Data Name System", "Digital Network System", "Domain Network Service"],
+    "answer": "Domain Name System"
+  },
+  {
+    "question": "What is the purpose of DNS?",
+    "options": ["Translating domain names into IP addresses", "Storing data packets", "Managing IP addresses", "Creating metadata"],
+    "answer": "Translating domain names into IP addresses"
+  },
+  {
+    "question": "What is metadata?",
+    "options": ["Data about data", "A type of IP address", "A data packet", "A domain name"],
+    "answer": "Data about data"
+  }
+]

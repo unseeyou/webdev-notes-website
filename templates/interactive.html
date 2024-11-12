@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Notes - Interactive Websites/Pages{% endblock %}
+{% block content %}
+    <div class="title">
+        <h1>📲 Interactive Websites/Webpages</h1>
+        <h3>An informative page about Interactive Websites/Webpages</h3>
+    </div>
+    <div class="description">
+        <p id="interactive-desc">
+            Interactive web pages are websites that display a page specifically designed with the end user experience (UX) in mind. Users are able to exert some amount of control on the website using inputs created by developers such as buttons and text entries. These websites are not static, meaning they change based on user input unlike a purely HTML/CSS site.<br><br>
+
+Interactive websites engage their users more than static websites, keeping them longer. The ability to see what users did and did not interact with allows developers to make changes using data that static web pages would not provide.<br><br>
+
+However, interactive elements of a website are usually larger in file size, leading to higher loading times - especially for users in areas where the wifi connection is slow. A website being interactive also means it is harder to develop as developers must take into account all the possible actions users may take. This also leaves more room for errors and exploits that could lead to unintended behaviour with often negative consequences.
+
+        </p>
+    <img src="{{ url_for("static", filename="images/graphic.jpg") }}" alt="cool graphic of the internet"/>
+        </div>
+{% endblock %}

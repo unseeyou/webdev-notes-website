@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Notes - Home{% endblock %}
+{% block content %}
+    <div class="title">
+        <h1>🏠 Home</h1>
+        <h3>An informative website about a variety of internet related software and technologies</h3>
+    </div>
+    <div class="description">
+        <p>
+            Use the navigation bar above to navigate to each section. Alternatively, click on one of the sections below:
+        </p>
+        <ul>
+            <li><a href="{{ url_for('data_packets') }}">Data Packets</a></li>
+            <li><a href="{{ url_for('ip_addresses') }}">Internet Protocol Addresses</a></li>
+            <li><a href="{{ url_for('domain_name_systems') }}">Domain Name Systems</a></li>
+            <li><a href="{{ url_for("interactive_pages") }}">Interactive Websites/Webpages</a></li>
+            <li><a href="{{ url_for("ecommerce") }}">E-Commerce</a></li>
+            <li><a href="{{ url_for("pwa") }}">Progressive Web Apps (PWAs)</a></li>
+        </ul>
+    </div>
+
+{% endblock %}
