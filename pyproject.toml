@@ -5,7 +5,11 @@ description = "Default template for PDM package"
 authors = [
     {name = "unseeyou", email = "unseeyoubestmod@gmail.com"},
 ]
-dependencies = []
+dependencies = [
+    "flask>=3.0.3",
+    "python-dotenv>=1.0.1",
+    "waitress>=3.0.1",
+]
 requires-python = "==3.12.*"
 readme = "README.md"
 license = {text = "MIT"}
@@ -13,3 +17,8 @@ license = {text = "MIT"}
 
 [tool.pdm]
 distribution = false
+
+[tool.pdm.scripts]
+install = "pdm install"
+run = "py src/server.py"
+start = { composite = ["install", "run"] }

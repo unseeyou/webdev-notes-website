@@ -1,10 +1,13 @@
-from flask import Flask, render_template, url_for, request, redirect, session
-import os
 import json
+import os
 from random import shuffle
+from dotenv import load_dotenv
 
+from flask import Flask, render_template, url_for, request, redirect, session
+
+load_dotenv()
 app = Flask(__name__)
-app.secret_key = os.environ["SECRET_KEY"]
+app.secret_key = os.getenv("SECRET_KEY")
 questions = None
 
 
@@ -20,49 +23,49 @@ def get_questions() -> list[dict[str, str | list[str]]]:
 def home():
     session["score"] = session.get("score", 0)
     session["question_index"] = session.get("question_index", 0)
-    return render_template("templates/index.html")
+    return render_template("index.html")
 
 
 @app.route("/secret")
 def secret():
-    return render_template("templates/secret.html")
+    return render_template("secret.html")
 
 
 @app.route("/data-packets")
 def data_packets():
-    return render_template("templates/data_packets.html")
+    return render_template("data_packets.html")
 
 
 @app.route("/ip-addresses")
 def ip_addresses():
-    return render_template("templates/IP_addresses.html")
+    return render_template("IP_addresses.html")
 
 
 @app.route("/dns")
 def domain_name_systems():
-    return render_template("templates/DNS.html")
+    return render_template("DNS.html")
 
 
 @app.route("/interactive-sites-pages")
 def interactive_pages():
-    return render_template("templates/interactive.html")
+    return render_template("interactive.html")
 
 
 @app.route("/ecommerce")
 def ecommerce():
-    return render_template("templates/ecommerce.html")
+    return render_template("ecommerce.html")
 
 
 @app.route("/progressive-webapps")
 def pwa():
-    return render_template("templates/pwa.html")
+    return render_template("pwa.html")
 
 
 @app.route("/result")
 def result():
     score = session.get("score", 0)
     total_questions = len(get_questions())
-    return render_template("templates/result.html", score=score, total_questions=total_questions)
+    return render_template("result.html", score=score, total_questions=total_questions)
 
 
 @app.route("/reset-score")
@@ -70,6 +73,7 @@ def reset_score():
     session["score"] = 0
     session["question_index"] = 0
     return redirect(url_for("quiz"))
+
 
 @app.route("/quiz", methods=["GET", "POST"])
 def quiz():
@@ -86,13 +90,13 @@ def quiz():
             session["score"] += 1
             return redirect(url_for("quiz"))
         else:
-            msg = f"Incorrect! The correct solution was: '{question["answer"]}'."
-            return render_template("templates/feedback.html", feedback=msg)
+            msg = f"Incorrect! The correct solution was '{question["answer"]}'."
+            return render_template("feedback.html", feedback=msg)
     shuffle(question["options"])
     return render_template(
-        "templates/question.html",
+        "question.html",
         question=question,
-        question_num=question_index+1,
+        question_num=question_index + 1,
         total_questions=len(get_questions()),
     )
 
