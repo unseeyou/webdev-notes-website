@@ -4,7 +4,7 @@
     ],
         "functions": {
             "api/static/js/script.js": {
-                "includeFiles": "/api/static/questions.json"
+                "includeFiles": "_files/**"
             }
     }
 }
