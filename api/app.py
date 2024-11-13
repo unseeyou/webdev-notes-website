@@ -14,8 +14,7 @@ questions = None
 def get_questions() -> list[dict[str, str | list[str]]]:
     global questions
     if questions is None:
-        with open("questions.json") as file:
-            questions = json.load(file)
+        questions = json.loads(render_template("questions.json"))
     return questions
 
 
