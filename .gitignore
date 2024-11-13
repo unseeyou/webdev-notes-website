@@ -182,3 +182,5 @@ cython_debug/
 .idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
 /pdm.lock
+
+.vercel
