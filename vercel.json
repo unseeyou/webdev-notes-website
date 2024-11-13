@@ -3,8 +3,8 @@
       { "source": "/(.*)", "destination": "/api/app" }
     ],
         "functions": {
-            "api/**/*.py": {
-                "includeFiles": "api/**/*.json"
+            "/api/**/*.py": {
+                "includeFiles": "/api/**/*.json"
             }
     }
 }
