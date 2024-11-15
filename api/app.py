@@ -82,8 +82,9 @@ def reset_score():
 @app.route("/search", methods=["GET", "POST"])
 def search():
     if request.method == "POST":
-        session
-    return render_template("search.html", q)
+        query = request.form.get("query", "")
+        session["latest_query"] = query
+    return render_template("search.html", query=session.get("latest_query", ""), results=[])
 
 
 @app.route("/backend/toggle-sidebar", methods=["GET"])
