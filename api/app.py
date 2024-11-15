@@ -18,10 +18,15 @@ def get_questions() -> list[dict[str, str | list[str]]]:
     return questions
 
 
+@app.context_processor
+def inject_sidebar():
+    return {"sidebar": "toggled" if session.get("sidebar-toggled", "false") == "true" else ""}
+
 @app.route("/")
 def home():
     session["score"] = session.get("score", 0)
     session["question_index"] = session.get("question_index", 0)
+    session["sidebar-toggled"] = session.get("sidebar-toggled", "false")
     return render_template("index.html")
 
 
@@ -74,6 +79,18 @@ def reset_score():
     return redirect(url_for("quiz"))
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    if request.method == "POST":
+        session
+    return render_template("search.html", q)
+
+
+@app.route("/backend/toggle-sidebar", methods=["GET"])
+def toggle_sidebar():
+    session["sidebar-toggled"] = "true" if session.get("sidebar-toggled", "false") == "false" else "false"
+    return session["sidebar-toggled"]
+
 @app.route("/quiz", methods=["GET", "POST"])
 def quiz():
     questions = get_questions()
@@ -102,3 +119,6 @@ def quiz():
 
 if __name__ == "__main__":
     app.run()
+    # TODO: add this to contents when more pages are added, also to long pages where sections can be split
+    # https://blog.hubspot.com/website/css-fade-in#text-transition
+    # TODO: split pages into sections, e.g. Pros, Cons
