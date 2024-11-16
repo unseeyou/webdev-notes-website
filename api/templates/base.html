@@ -19,7 +19,7 @@
   </head>
   <body>
   <div id="wrapper" class="d-flex">
-      <div id="sidebar-wrapper" class="border border-info bg-info-subtle">
+      <div id="sidebar-wrapper" class="border border-info bg-info-subtle {{ sidebar }}">
           <div class="sidebar-heading">CONTENTS</div>
           <div class="list-group list-group-flush">
             <a class="list-group-item" href="/dns">Domain Name Systems</a>
@@ -42,8 +42,8 @@
         <img src="{{ url_for("static", filename="images/icon.png") }}" alt="logo" style="height: 50px" />
         Cool Software Notes
     </a>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <form class="d-flex" role="search" method="POST" action="{{ url_for("search") }}">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>

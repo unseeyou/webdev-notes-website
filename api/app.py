@@ -2,6 +2,7 @@ import json
 import os
 from random import shuffle
 from dotenv import load_dotenv
+from bs4 import BeautifulSoup
 
 from flask import Flask, render_template, url_for, request, redirect, session
 
@@ -18,10 +19,15 @@ def get_questions() -> list[dict[str, str | list[str]]]:
     return questions
 
 
+@app.context_processor
+def inject_sidebar():
+    return {"sidebar": "toggled" if session.get("sidebar-toggled", "false") == "true" else ""}
+
 @app.route("/")
 def home():
     session["score"] = session.get("score", 0)
     session["question_index"] = session.get("question_index", 0)
+    session["sidebar-toggled"] = session.get("sidebar-toggled", "false")
     return render_template("index.html")
 
 
@@ -74,6 +80,52 @@ def reset_score():
     return redirect(url_for("quiz"))
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    if request.method == "POST":
+        query = request.form.get("query", "")
+        session["latest_query"] = query
+
+    pages = [
+        "data_packets",
+        "DNS",
+        "ecommerce",
+        "index",
+        "interactive",
+        "IP_addresses",
+        "pwa",
+    ]
+
+    links = {
+        "data_packets": url_for("data_packets"),
+        "DNS": url_for("domain_name_systems"),
+        "ecommerce": url_for("ecommerce"),
+        "index": url_for("home"),
+        "interactive": url_for("interactive_pages"),
+        "IP_addresses": url_for("ip_addresses"),
+        "pwa": url_for("pwa"),
+    }
+
+    results = []
+
+    for page in pages:
+        page_content = render_template(f"{page}.html")
+        bs4 = BeautifulSoup(page_content, "html.parser")
+        if session["latest_query"] in page_content:
+            results.append({
+                "title": bs4.find("div", {"class": "title"}).find("h1").text,
+                "desc": bs4.find("div", {"class": "description"}).text,
+                "url": links[page],
+            })
+
+    return render_template("search.html", query=session.get("latest_query", ""), results=results)
+
+
+@app.route("/backend/toggle-sidebar", methods=["GET"])
+def toggle_sidebar():
+    session["sidebar-toggled"] = "true" if session.get("sidebar-toggled", "false") == "false" else "false"
+    return session["sidebar-toggled"]
+
 @app.route("/quiz", methods=["GET", "POST"])
 def quiz():
     questions = get_questions()
@@ -102,3 +154,6 @@ def quiz():
 
 if __name__ == "__main__":
     app.run()
+    # TODO: add this to contents when more pages are added, also to long pages where sections can be split
+    # https://blog.hubspot.com/website/css-fade-in#text-transition
+    # TODO: split pages into sections, e.g. Pros, Cons
