@@ -126,6 +126,7 @@ def toggle_sidebar():
     session["sidebar-toggled"] = "true" if session.get("sidebar-toggled", "false") == "false" else "false"
     return session["sidebar-toggled"]
 
+
 @app.route("/quiz", methods=["GET", "POST"])
 def quiz():
     questions = get_questions()

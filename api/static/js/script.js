@@ -1,6 +1,7 @@
 function toggle() {
     document.getElementById("sidebar-wrapper").classList.toggle("toggled");
-    window.fetch("/backend/toggle-sidebar").then((r) => {
+    fetch("/backend/toggle-sidebar").then((r) => {
+        console.log(r.json());
         return r.json();
     })
 }
