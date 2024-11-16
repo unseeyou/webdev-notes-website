@@ -2,6 +2,7 @@ import json
 import os
 from random import shuffle
 from dotenv import load_dotenv
+from bs4 import BeautifulSoup
 
 from flask import Flask, render_template, url_for, request, redirect, session
 
@@ -84,7 +85,40 @@ def search():
     if request.method == "POST":
         query = request.form.get("query", "")
         session["latest_query"] = query
-    return render_template("search.html", query=session.get("latest_query", ""), results=[])
+
+    pages = [
+        "data_packets",
+        "DNS",
+        "ecommerce",
+        "index",
+        "interactive",
+        "IP_addresses",
+        "pwa",
+    ]
+
+    links = {
+        "data_packets": url_for("data_packets"),
+        "DNS": url_for("domain_name_systems"),
+        "ecommerce": url_for("ecommerce"),
+        "index": url_for("home"),
+        "interactive": url_for("interactive_pages"),
+        "IP_addresses": url_for("ip_addresses"),
+        "pwa": url_for("pwa"),
+    }
+
+    results = []
+
+    for page in pages:
+        page_content = render_template(f"{page}.html")
+        bs4 = BeautifulSoup(page_content, "html.parser")
+        if session["latest_query"] in page_content:
+            results.append({
+                "title": bs4.find("div", {"class": "title"}).find("h1").text,
+                "desc": bs4.find("div", {"class": "description"}).text,
+                "url": links[page],
+            })
+
+    return render_template("search.html", query=session.get("latest_query", ""), results=results)
 
 
 @app.route("/backend/toggle-sidebar", methods=["GET"])
