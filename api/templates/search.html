@@ -2,11 +2,11 @@
 {% block title %}Search Results{% endblock %}
 
 {% block content %}
-    <h2>Search Results for "{{ query }}"</h2>
+    <h2>Search Results for <mark class="search-term">"{{ query }}"</mark></h2>
     {% for result in results %}
         <div class="search-result">
             <h4><a href="{{ result["url"] }}">{{ result["title"] }}</a></h4>
-            <p>{{ result["desc"] }}</p>
+            <p class="search-description">{{ result["desc"] }}</p>
         </div>
     {% endfor %}
 {% endblock %}
