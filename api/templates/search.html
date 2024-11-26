@@ -6,7 +6,7 @@
     {% for result in results %}
         <div class="search-result">
             <h4><a href="{{ result["url"] }}">{{ result["title"] }}</a></h4>
-            <p class="search-description">{{ result["desc"] }}</p>
+            <p class="search-description">{{ result["desc"]|safe }}</p>
         </div>
     {% endfor %}
 {% endblock %}
