@@ -1,5 +1,6 @@
 import json
 import os
+import re
 from random import shuffle
 from dotenv import load_dotenv
 from bs4 import BeautifulSoup
@@ -111,12 +112,24 @@ def search():
     for page in pages:
         page_content = render_template(f"{page}.html")
         bs4 = BeautifulSoup(page_content, "html.parser")
-        if session["latest_query"] in page_content:
-            results.append({
-                "title": bs4.find("div", {"class": "title"}).find("h1").text,
-                "desc": bs4.find("div", {"class": "description"}).text,
-                "url": links[page],
-            })
+        if session["latest_query"].lower() in page_content.lower():
+            desc = ""
+            occurrences: list[str] = [q.text for q in bs4.findAll("div", {"class": "description"})]
+            for occurrence in occurrences:
+                sentences = occurrence.split(". ")
+                # only add to result if the div contains the searched text
+                for sentence in sentences:
+                    if session["latest_query"].lower() in sentence.lower():
+                        # use regex for a case-insensitive replace
+                        replacer = re.compile(re.escape(session["latest_query"]), re.IGNORECASE)
+                        sentence = replacer.sub(f"<mark>{session["latest_query"]}</mark>", sentence)
+                        desc += f"...{sentence}... "
+            if desc:
+                results.append({
+                    "title": bs4.find("div", {"class": "title"}).find("h1").text,
+                    "desc": desc,
+                    "url": links[page],
+                })
 
     return render_template("search.html", query=session.get("latest_query", ""), results=results)
 
@@ -125,6 +138,7 @@ def search():
 def toggle_sidebar():
     session["sidebar-toggled"] = "true" if session.get("sidebar-toggled", "false") == "false" else "false"
     return session["sidebar-toggled"]
+
 
 @app.route("/quiz", methods=["GET", "POST"])
 def quiz():
