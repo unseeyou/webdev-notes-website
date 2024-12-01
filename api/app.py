@@ -22,7 +22,12 @@ def get_questions() -> list[dict[str, str | list[str]]]:
 
 @app.context_processor
 def inject_sidebar():
-    return {"sidebar": "toggled" if session.get("sidebar-toggled", "false") == "true" else ""}
+    return {
+        "sidebar": "toggled"
+        if session.get("sidebar-toggled", "false") == "true"
+        else ""
+    }
+
 
 @app.route("/")
 def home():
@@ -65,6 +70,11 @@ def ecommerce():
 @app.route("/progressive-webapps")
 def pwa():
     return render_template("pwa.html")
+
+
+@app.route("/web-accessibility-initiative")
+def wai():
+    return render_template("wai.html")
 
 
 @app.route("/result")
@@ -114,29 +124,41 @@ def search():
         bs4 = BeautifulSoup(page_content, "html.parser")
         if session["latest_query"].lower() in page_content.lower():
             desc = ""
-            occurrences: list[str] = [q.text for q in bs4.findAll("div", {"class": "description"})]
+            occurrences: list[str] = [
+                q.text for q in bs4.findAll("div", {"class": "description"})
+            ]
             for occurrence in occurrences:
                 sentences = occurrence.split(". ")
                 # only add to result if the div contains the searched text
                 for sentence in sentences:
                     if session["latest_query"].lower() in sentence.lower():
                         # use regex for a case-insensitive replace
-                        replacer = re.compile(re.escape(session["latest_query"]), re.IGNORECASE)
-                        sentence = replacer.sub(f"<mark>{session["latest_query"]}</mark>", sentence)
+                        replacer = re.compile(
+                            re.escape(session["latest_query"]), re.IGNORECASE
+                        )
+                        sentence = replacer.sub(
+                            f"<mark>{session["latest_query"]}</mark>", sentence
+                        )
                         desc += f"...{sentence}... "
             if desc:
-                results.append({
-                    "title": bs4.find("div", {"class": "title"}).find("h1").text,
-                    "desc": desc,
-                    "url": links[page],
-                })
+                results.append(
+                    {
+                        "title": bs4.find("div", {"class": "title"}).find("h1").text,
+                        "desc": desc,
+                        "url": links[page],
+                    }
+                )
 
-    return render_template("search.html", query=session.get("latest_query", ""), results=results)
+    return render_template(
+        "search.html", query=session.get("latest_query", ""), results=results
+    )
 
 
 @app.route("/backend/toggle-sidebar", methods=["GET"])
 def toggle_sidebar():
-    session["sidebar-toggled"] = "true" if session.get("sidebar-toggled", "false") == "false" else "false"
+    session["sidebar-toggled"] = (
+        "true" if session.get("sidebar-toggled", "false") == "false" else "false"
+    )
     return session["sidebar-toggled"]
 
 
