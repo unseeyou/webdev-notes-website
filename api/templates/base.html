@@ -22,15 +22,9 @@
             <div id="sidebar-wrapper" class="border border-info bg-info-subtle {{ sidebar }}">
                 <div class="sidebar-heading">CONTENTS</div>
                 <div class="list-group list-group-flush">
-                    <a class="list-group-item" href="/dns">Domain Name Systems</a>
-                    <a class="list-group-item" href="/ip-addresses">IP Addresses</a>
-                    <a class="list-group-item" href="/data-packets">Data Packets</a>
-                    <a class="list-group-item" href="/interactive-sites-pages">Interactive Websites/Webpages</a>
-                    <a class="list-group-item" href="/ecommerce">E-Commerce</a>
-                    <a class="list-group-item" href="/progressive-webapps">Progressive Web Apps</a>
-                    <a href="/web-accessibility-initiative" class="list-group-item">Web Accessibility Initiative</a>
-                    <a href="/internationalisation" class="list-group-item">Internationalisation</a>
-                    <a href="/web-security" class="list-group-item">Web Security</a>
+                   {% for page in pages %}
+                        <a class="list-group-item" href="{{ pages[page] }}">{{ page }}</a>
+                   {% endfor %}
                     <a class="list-group-item" href="/quiz">Quiz Your Knowledge!</a>
                 </div>
             </div>

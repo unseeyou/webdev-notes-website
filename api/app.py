@@ -25,7 +25,19 @@ def inject_sidebar():
     return {
         "sidebar": "toggled"
         if session.get("sidebar-toggled", "false") == "true"
-        else ""
+        else "",
+        "pages": {
+            "Data Packets": url_for("data_packets"),
+            "DNS": url_for("domain_name_systems"),
+            "Ecommerce": url_for("ecommerce"),
+            "Interactive Websites": url_for("interactive_pages"),
+            "IP Addresses": url_for("ip_addresses"),
+            "Progressive Web Apps": url_for("pwa"),
+            "Web Accessibility Initiative": url_for("wai"),
+            "Internationalisation": url_for("internationalisation"),
+            "Web Security": url_for("web_security"),
+            "Privacy": url_for("privacy"),
+        }
     }
 
 
@@ -85,6 +97,11 @@ def internationalisation():
 @app.route("/web-security")
 def web_security():
     return render_template("websec.html")
+
+
+@app.route("/privacy")
+def privacy():
+    return render_template("privacy.html")
 
 
 @app.route("/result")
