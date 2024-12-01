@@ -77,6 +77,16 @@ def wai():
     return render_template("wai.html")
 
 
+@app.route("/internationalisation")
+def internationalisation():
+    return render_template("internationalisation.html")
+
+
+@app.route("/web-security")
+def web_security():
+    return render_template("websec.html")
+
+
 @app.route("/result")
 def result():
     score = session.get("score", 0)
@@ -97,16 +107,6 @@ def search():
         query = request.form.get("query", "")
         session["latest_query"] = query
 
-    pages = [
-        "data_packets",
-        "DNS",
-        "ecommerce",
-        "index",
-        "interactive",
-        "IP_addresses",
-        "pwa",
-    ]
-
     links = {
         "data_packets": url_for("data_packets"),
         "DNS": url_for("domain_name_systems"),
@@ -115,11 +115,14 @@ def search():
         "interactive": url_for("interactive_pages"),
         "IP_addresses": url_for("ip_addresses"),
         "pwa": url_for("pwa"),
+        "wai": url_for("wai"),
+        "internationalisation": url_for("internationalisation"),
+        "websec": url_for("web_security"),
     }
 
     results = []
 
-    for page in pages:
+    for page in links:
         page_content = render_template(f"{page}.html")
         bs4 = BeautifulSoup(page_content, "html.parser")
         if session["latest_query"].lower() in page_content.lower():

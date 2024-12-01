@@ -62,6 +62,26 @@ main {
     font-weight: normal;
 }
 
+.description li {
+    color: #494e7d;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: left;
+    font-weight: 400;
+    padding-right: 12%;
+    padding-left: 12%;
+}
+
+.description h3 {
+    color: #3a839e;
+    font-weight: bold;
+}
+
+.description h4 {
+    color: #126094;
+    font-weight: bold;
+}
+
 .description img {
     width: 70%;
     margin-top: 3%;
@@ -70,6 +90,10 @@ main {
 
 .description ul {
     list-style-type: none;
+}
+
+.description ol {
+    list-style-position: inside;
 }
 
 .description li {
