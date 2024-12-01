@@ -24,9 +24,9 @@ def get_questions() -> list[dict[str, str | list[str]]]:
 def inject_sidebar():
     return {
         "sidebar": "toggled"
-        if session.get("sidebar-toggled", "false") == "true"
+        if session.get("sidebar-toggled", "false") == "true"  # this is so the sidebar preserves its state across pages
         else "",
-        "pages": {
+        "pages": {  # different enough from the one stored in search function to warrant not storing just one dict
             "Data Packets": url_for("data_packets"),
             "DNS": url_for("domain_name_systems"),
             "Ecommerce": url_for("ecommerce"),
@@ -37,6 +37,7 @@ def inject_sidebar():
             "Internationalisation": url_for("internationalisation"),
             "Web Security": url_for("web_security"),
             "Privacy": url_for("privacy"),
+            "Machine Readable Data": url_for("machine_data"),
         }
     }
 
@@ -104,6 +105,11 @@ def privacy():
     return render_template("privacy.html")
 
 
+@app.route("/machine-readable-data")
+def machine_data():
+    return render_template("machine_data.html")
+
+
 @app.route("/result")
 def result():
     score = session.get("score", 0)
@@ -124,7 +130,7 @@ def search():
         query = request.form.get("query", "")
         session["latest_query"] = query
 
-    links = {
+    links = {  # html file name is different to the page name
         "data_packets": url_for("data_packets"),
         "DNS": url_for("domain_name_systems"),
         "ecommerce": url_for("ecommerce"),
@@ -135,6 +141,8 @@ def search():
         "wai": url_for("wai"),
         "internationalisation": url_for("internationalisation"),
         "websec": url_for("web_security"),
+        "privacy": url_for("privacy"),
+        "machine_data": url_for("machine_data"),
     }
 
     results = []
@@ -210,6 +218,5 @@ def quiz():
 
 if __name__ == "__main__":
     app.run()
-    # TODO: add this to contents when more pages are added, also to long pages where sections can be split
-    # https://blog.hubspot.com/website/css-fade-in#text-transition
     # TODO: split pages into sections, e.g. Pros, Cons
+    # TODO: pin the sidebar so it does not scroll with the page (maybe separate scroll)
