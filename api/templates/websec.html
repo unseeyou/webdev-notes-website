@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Web Security{% endblock %}
+
+{% block content %}
+     <div class="title">
+        <h1>🛡️ Web Security</h1>
+        <h3>Overview</h3>
+    </div>
+    <div class="description">
+        <p>Web security refers to the measures and practices designed to protect websites, web applications, and online services from various security threats. These threats include attacks like hacking, data breaches, and other malicious activities aimed at compromising the integrity, confidentiality, and availability of web resources.</p>
+        <h3 id="key-concepts-in-web-security">Key Concepts in Web Security</h3>
+        <ol>
+            <li><strong>Authentication</strong>: Verifying the identity of users and ensuring that only authorized individuals can access certain resources.</li>
+            <li><strong>Authorization</strong>: Granting or denying specific permissions to authenticated users based on their roles or privileges.</li>
+            <li><strong>Encryption</strong>: Using cryptographic techniques to protect sensitive data by converting it into unreadable formats that can only be decrypted by authorized parties.</li>
+            <li><strong>Firewalls</strong>: Security devices or software that monitor and control incoming and outgoing network traffic based on predetermined security rules.</li>
+            <li><strong>Intrusion Detection Systems (IDS)</strong>: Tools that detect and alert administrators about potential security breaches or suspicious activities on a network.</li>
+        </ol>
+        <h3 id="common-web-security-threats">Common Web Security Threats</h3>
+        <ol>
+            <li><strong>SQL Injection</strong>: An attack where malicious SQL statements are inserted into an entry field for execution, allowing attackers to manipulate databases.</li>
+            <li><strong>Cross-Site Scripting (XSS)</strong>: An attack where malicious scripts are injected into trusted websites, potentially leading to data theft or session hijacking.</li>
+            <li><strong>Cross-Site Request Forgery (CSRF)</strong>: An attack that tricks a user into performing actions they did not intend, typically by exploiting the user&#39;s authenticated session.</li>
+            <li><strong>Distributed Denial of Service (DDoS)</strong>: An attack that overwhelms a website or server with a flood of traffic, rendering it unavailable to users.</li>
+            <li><strong>Phishing</strong>: A technique where attackers trick users into providing sensitive information, such as login credentials or financial details, by posing as a trustworthy entity.</li>
+        </ol>
+        <h3 id="best-practices-for-web-security">Best Practices for Web Security</h3>
+        <ol>
+            <li><strong>Use Strong Passwords</strong>: Encourage users to create complex passwords and implement multi-factor authentication (MFA) to enhance security.</li>
+            <li><strong>Keep Software Updated</strong>: Regularly update software, frameworks, and libraries to patch security vulnerabilities and prevent exploits.</li>
+            <li><strong>Implement HTTPS</strong>: Use HTTPS to encrypt data transmitted between the user&#39;s browser and the server, ensuring secure communication.</li>
+            <li><strong>Validate User Input</strong>: Always validate and sanitize user input to prevent injection attacks and other security vulnerabilities.</li>
+            <li><strong>Secure Session Management</strong>: Implement secure session management practices, such as using secure cookies and setting appropriate session timeouts.</li>
+        </ol>
+        <h3 id="additional-resources">Additional Resources</h3>
+        <ul>
+            <li><strong>OWASP (Open Web Application Security Project)</strong>: Provides freely available articles, methodologies, documentation, tools, and technologies in the field of web application security. <a href="https://owasp.org/">OWASP</a></li>
+            <li><strong>NIST Cybersecurity Framework</strong>: A policy framework of computer security guidance for how private sector organizations can assess and improve their ability to prevent, detect, and respond to cyber attacks. <a href="https://www.nist.gov/cyberframework">NIST Cybersecurity Framework</a></li>
+            <li><strong>Web Security Testing Guide</strong>: A comprehensive guide to testing the security of web applications. <a href="https://owasp.org/www-project-web-security-testing-guide/">Web Security Testing Guide</a></li>
+        </ul>
+    </div>
+{% endblock %}

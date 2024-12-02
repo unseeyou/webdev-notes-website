@@ -22,7 +22,25 @@ def get_questions() -> list[dict[str, str | list[str]]]:
 
 @app.context_processor
 def inject_sidebar():
-    return {"sidebar": "toggled" if session.get("sidebar-toggled", "false") == "true" else ""}
+    return {
+        "sidebar": "toggled"
+        if session.get("sidebar-toggled", "false") == "true"  # this is so the sidebar preserves its state across pages
+        else "",
+        "pages": {  # different enough from the one stored in search function to warrant not storing just one dict
+            "Data Packets": url_for("data_packets"),
+            "DNS": url_for("domain_name_systems"),
+            "Ecommerce": url_for("ecommerce"),
+            "Interactive Websites": url_for("interactive_pages"),
+            "IP Addresses": url_for("ip_addresses"),
+            "Progressive Web Apps": url_for("pwa"),
+            "Web Accessibility Initiative": url_for("wai"),
+            "Internationalisation": url_for("internationalisation"),
+            "Web Security": url_for("web_security"),
+            "Privacy": url_for("privacy"),
+            "Machine Readable Data": url_for("machine_data"),
+        }
+    }
+
 
 @app.route("/")
 def home():
@@ -67,6 +85,31 @@ def pwa():
     return render_template("pwa.html")
 
 
+@app.route("/web-accessibility-initiative")
+def wai():
+    return render_template("wai.html")
+
+
+@app.route("/internationalisation")
+def internationalisation():
+    return render_template("internationalisation.html")
+
+
+@app.route("/web-security")
+def web_security():
+    return render_template("websec.html")
+
+
+@app.route("/privacy")
+def privacy():
+    return render_template("privacy.html")
+
+
+@app.route("/machine-readable-data")
+def machine_data():
+    return render_template("machine_data.html")
+
+
 @app.route("/result")
 def result():
     score = session.get("score", 0)
@@ -87,17 +130,7 @@ def search():
         query = request.form.get("query", "")
         session["latest_query"] = query
 
-    pages = [
-        "data_packets",
-        "DNS",
-        "ecommerce",
-        "index",
-        "interactive",
-        "IP_addresses",
-        "pwa",
-    ]
-
-    links = {
+    links = {  # html file name is different to the page name
         "data_packets": url_for("data_packets"),
         "DNS": url_for("domain_name_systems"),
         "ecommerce": url_for("ecommerce"),
@@ -105,38 +138,55 @@ def search():
         "interactive": url_for("interactive_pages"),
         "IP_addresses": url_for("ip_addresses"),
         "pwa": url_for("pwa"),
+        "wai": url_for("wai"),
+        "internationalisation": url_for("internationalisation"),
+        "websec": url_for("web_security"),
+        "privacy": url_for("privacy"),
+        "machine_data": url_for("machine_data"),
     }
 
     results = []
 
-    for page in pages:
+    for page in links:
         page_content = render_template(f"{page}.html")
         bs4 = BeautifulSoup(page_content, "html.parser")
         if session["latest_query"].lower() in page_content.lower():
             desc = ""
-            occurrences: list[str] = [q.text for q in bs4.findAll("div", {"class": "description"})]
+            occurrences: list[str] = [
+                q.text for q in bs4.findAll("div", {"class": "description"})
+            ]
             for occurrence in occurrences:
                 sentences = occurrence.split(". ")
                 # only add to result if the div contains the searched text
                 for sentence in sentences:
                     if session["latest_query"].lower() in sentence.lower():
                         # use regex for a case-insensitive replace
-                        replacer = re.compile(re.escape(session["latest_query"]), re.IGNORECASE)
-                        sentence = replacer.sub(f"<mark>{session["latest_query"]}</mark>", sentence)
+                        replacer = re.compile(
+                            re.escape(session["latest_query"]), re.IGNORECASE
+                        )
+                        sentence = replacer.sub(
+                            f"<mark>{session["latest_query"]}</mark>", sentence
+                        )
                         desc += f"...{sentence}... "
             if desc:
-                results.append({
-                    "title": bs4.find("div", {"class": "title"}).find("h1").text,
-                    "desc": desc,
-                    "url": links[page],
-                })
+                results.append(
+                    {
+                        "title": bs4.find("div", {"class": "title"}).find("h1").text,
+                        "desc": desc,
+                        "url": links[page],
+                    }
+                )
 
-    return render_template("search.html", query=session.get("latest_query", ""), results=results)
+    return render_template(
+        "search.html", query=session.get("latest_query", ""), results=results
+    )
 
 
 @app.route("/backend/toggle-sidebar", methods=["GET"])
 def toggle_sidebar():
-    session["sidebar-toggled"] = "true" if session.get("sidebar-toggled", "false") == "false" else "false"
+    session["sidebar-toggled"] = (
+        "true" if session.get("sidebar-toggled", "false") == "false" else "false"
+    )
     return session["sidebar-toggled"]
 
 
@@ -168,6 +218,5 @@ def quiz():
 
 if __name__ == "__main__":
     app.run()
-    # TODO: add this to contents when more pages are added, also to long pages where sections can be split
-    # https://blog.hubspot.com/website/css-fade-in#text-transition
     # TODO: split pages into sections, e.g. Pros, Cons
+    # TODO: pin the sidebar so it does not scroll with the page (maybe separate scroll)

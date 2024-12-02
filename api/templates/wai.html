@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Web Accessibility Initiative{% endblock %}
+
+{% block content %}
+    <div class="title">
+        <h1>♿ Web Accessibility Initiative</h1>
+        <h3>WAI Overview</h3>
+    </div>
+    <div class="description">
+        <p>The <strong>Web Accessibility Initiative (WAI)</strong> is a program by the World Wide Web Consortium (W3C) that develops guidelines and resources to make the web accessible to people with disabilities. The initiative aims to ensure that websites, tools, and technologies are designed and developed so that people with disabilities can use them.</p>
+        <h3 id="key-principles-of-web-accessibility">Key Principles of Web Accessibility</h3>
+        <ol>
+            <li><strong>Perceivable</strong>: Information and user interface components must be presentable to users in ways they can perceive. This includes providing text alternatives for non-text content, captions for multimedia, and ensuring content can be presented in different ways.</li>
+            <li><strong>Operable</strong>: User interface components and navigation must be operable. This means functionality is available from a keyboard, users have enough time to read and use the content, and content does not cause seizures or physical reactions.</li>
+            <li><strong>Understandable</strong>: Information and the operation of the user interface must be understandable. This involves making text readable and understandable, ensuring content appears and operates in predictable ways, and helping users avoid and correct mistakes.</li>
+            <li><strong>Robust</strong>: Content must be robust enough to be interpreted reliably by a wide variety of user agents, including assistive technologies. This means content should be compatible with current and future user tools.</li>
+        </ol>
+        <h3 id="web-content-accessibility-guidelines-wcag">Web Content Accessibility Guidelines (WCAG)</h3>
+        <p>The Web Content Accessibility Guidelines (WCAG) are a part of WAI and provide a detailed set of recommendations for making web content more accessible. WCAG is organized around the four principles mentioned above and includes specific guidelines and success criteria.</p>
+        <h3 id="examples-of-good-web-accessibility">Examples of Good Web Accessibility</h3>
+        <ol>
+            <li><strong>Use Semantic HTML</strong>: Use proper HTML elements for content structure (e.g., headings, lists, tables) to ensure accessibility.</li>
+            <li><strong>Provide Text Alternatives</strong>: Offer text descriptions for non-text content like images, videos, and audio files.</li>
+            <li><strong>Ensure Keyboard Navigation</strong>: Make sure all interactive elements are accessible via keyboard.</li>
+            <li><strong>Create Accessible Forms</strong>: Label form elements clearly and provide instructions for users.</li>
+            <li><strong>Test with Assistive Technologies</strong>: Use screen readers and other assistive technologies to test your website&#39;s accessibility.</li>
+        </ol>
+        <h3 id="additional-resources">Additional Resources</h3>
+        <ul>
+            <li><strong>W3C WAI Home Page</strong>: <a href="https://www.w3.org/WAI/">W3C Web Accessibility Initiative</a></li>
+            <li><strong>Introduction to Web Accessibility</strong>: <a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/">W3C WAI Fundamentals</a></li>
+            <li><strong>WCAG Documents</strong>: <a href="https://w3c.github.io/wai-website/standards-guidelines/wcag/docs/">Understanding WCAG</a></li>
+        </ul>
+    </div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %}Web Accessibility Initiative{% endblock %}
+
+{% block content %}
+    <div class="title">
+        <h1>🌏 Internationalisation</h1>
+        <h3>Overview</h3>
+    </div>
+    <div class="description">
+        <p>Internationalisation, often abbreviated as i18n, is the process of designing and developing software applications, websites, and other digital content in such a way that they can be easily adapted to various languages and regions without requiring engineering changes.</p>
+        <h3 id="key-concepts-in-internationalisation">Key Concepts in Internationalisation</h3>
+        <ol>
+            <li><strong>Localisation (L10n)</strong>: Localisation is the process of adapting the internationalised software for a specific region or language by translating text and adjusting formats (like date, time, and currency).</li>
+            <li><strong>Globalisation (G11n)</strong>: Globalisation is the broader process that encompasses both internationalisation and localisation. It involves planning and implementing products and services that can be easily localised and adapted to multiple markets.</li>
+        </ol>
+        <h3 id="important-elements-of-internationalisation">Important Elements of Internationalisation</h3>
+        <ol>
+            <li><strong>Text Handling</strong>: Ensure that your code can handle different character sets (e.g., UTF-8) and right-to-left text for languages like Arabic and Hebrew.</li>
+            <li><strong>Locale-Specific Formats</strong>: Design your application to adapt date, time, number, and currency formats according to the user&#39;s locale.</li>
+            <li><strong>Cultural Sensitivity</strong>: Avoid content that might be culturally sensitive or inappropriate in other regions. This includes colors, images, and symbols.</li>
+            <li><strong>Language Support</strong>: Provide a mechanism for users to select their preferred language and ensure that all text strings are easily translatable.</li>
+        </ol>
+        <h3 id="best-practices-for-internationalisation">Best Practices for Internationalisation</h3>
+        <ol>
+            <li><strong>Externalise Text</strong>: Store text in resource files separate from the codebase. This allows easy translation and updates without changing the core code.</li>
+            <li><strong>Use Standard Libraries</strong>: Utilise standard internationalisation libraries and frameworks available in your programming language to handle text, dates, and other locale-specific data.</li>
+            <li><strong>Test with Real Data</strong>: Test your application with actual data from different locales to ensure proper handling of text, formats, and functionalities.</li>
+            <li><strong>Plan for Expansion</strong>: Design your UI and data storage to handle expansion. For example, ensure your interface can accommodate longer text in some languages.</li>
+        </ol>
+        <h3 id="pros-and-cons-of-implementing-internationalisation">Pros and Cons of Implementing Internationalisation</h3>
+        <h4 id="pros">Pros</h4>
+        <ol>
+            <li><strong>Wider Market Reach</strong>: Expanding to multiple languages and regions increases the potential user base.</li>
+            <li><strong>Improved User Experience</strong>: Users are more comfortable and engaged when they can interact with software in their native language.</li>
+            <li><strong>Competitive Advantage</strong>: Offering a product in multiple languages can set a company apart from competitors.</li>
+            <li><strong>Compliance with Local Regulations</strong>: In some regions, providing services in the local language is a legal requirement.</li>
+        </ol>
+        <h4 id="cons">Cons</h4>
+        <ol>
+            <li><strong>Increased Development Time and Costs</strong>: Implementing internationalisation can be time-consuming and costly, especially for small teams.</li>
+            <li><strong>Complexity in Maintenance</strong>: Maintaining multiple versions of the same software can be challenging and requires ongoing updates.</li>
+            <li><strong>Potential for Cultural Misunderstandings</strong>: Inadequate cultural sensitivity can lead to misunderstandings or offend users in different regions.</li>
+            <li><strong>Need for Continuous Testing</strong>: Ensuring that the software works correctly in all supported locales requires extensive and continuous testing.</li>
+        </ol>
+        <h3 id="additional-resources">Additional Resources</h3>
+        <ul>
+            <li><strong>Unicode and Character Encoding</strong>: Understanding and implementing <a href="https://www.unicode.org/standard/standard.html">Unicode standards</a> to handle multiple languages.</li>
+            <li><strong>Locale Data</strong>: Managing and applying <a href="https://www.localeplanet.com/">locale-specific data</a> for formatting and translation.</li>
+            <li><strong>Internationalisation Tools</strong>: Tools and frameworks that aid in the internationalisation process, such as <a href="https://www.gnu.org/software/gettext/">gettext</a>, <a href="http://site.icu-project.org/">ICU (International Components for Unicode)</a>, and more.</li>
+        </ul>
+    </div>
+{% endblock %}
