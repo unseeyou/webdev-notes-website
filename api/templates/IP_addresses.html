@@ -3,19 +3,49 @@
 {% block content %}
     <div class="title">
         <h1>📫 IP Addresses</h1>
-        <h3>An informative page about IP Addresses</h3>
+        <h3>how a device is found on the web</h3>
     </div>
     <div class="description">
-        <p id="data-packets-desc">
-            Every device connected to the internet is assigned a unique IP address. An IP address (Internet Protocol address) is a unique string of numbers separated by periods (IPv4) or colons (IPv6) that identifies each device connected to a network. It's like a digital address that allows devices to communicate with each other over the internet, ensuring data is sent and received accurately.<br><br>
-
-The two main protocols for IP addresses currently are IPv4 and IPv6. IPv4 is being phased out as there are no longer enough possible combinations to provide a unique identifier for every one. IPv6 was introduced, containing 128 bits where IPv4 only has 32. This means it has 1028 times more possible combinations, sufficient for the increased amount of devices connected to the internet for now. Every device has a private IP address which is assigned by the router. Then the router networks each device with the public internet, all sharing the same public IP given by the ISP (Internet Service Provider) to the router.<br><br>
-While IP addresses provide a great way to store the location of a device in a digital landscape, this also means that the services your internet communicates with will also have access to your digital location, which also gives a rough real world location of where the physical system is. IP addresses can be protected through VPNs and similar products, but they sacrifice a substantial amount of speed for one layer of security, making the tradeoff not worth it for most people.</p>
+        <p>An IP address (Internet Protocol address) is a unique identifier assigned to each device connected to a network that uses the Internet Protocol for communication. IP addresses allow devices to locate and communicate with each other over the internet or a local network.</p>
         <div class="p-3 text-info-emphasis bg-info-subtle border border-info-subtle rounded-3 example">
-
-    IPv4 Example: 192.16.1.127<br>
-    IPv6 Example: 2001:0db8:85a3:0000:0000:8a2e:0370:7334
-    </div>
-        <img src="{{ url_for("static", filename="images/graphic.jpg") }}" alt="cool graphic of the internet"/>
+        IPv4 Example: 192.16.1.127<br>
+        IPv6 Example: 2001:0db8:85a3:0000:0000:8a2e:0370:7334
+        </div>
+        <h3 id="key-concepts-in-ip-addresses">Key Concepts in IP Addresses</h3>
+        <ol>
+            <li><strong>IPv4 (Internet Protocol version 4)</strong>: The fourth version of the Internet Protocol, which uses 32-bit addresses, allowing for approximately 4.3 billion unique addresses.</li>
+            <li><strong>IPv6 (Internet Protocol version 6)</strong>: The most recent version of the Internet Protocol, which uses 128-bit addresses, allowing for a virtually limitless number of unique addresses.</li>
+            <li><strong>Static IP Address</strong>: An IP address that is manually assigned to a device and does not change. This is often used for servers and other permanent installations.</li>
+            <li><strong>Dynamic IP Address</strong>: An IP address that is assigned to a device by a DHCP (Dynamic Host Configuration Protocol) server and can change over time. This is typically used for consumer devices.</li>
+            <li><strong>Public IP Address</strong>: An IP address that is assigned to a device for direct access over the internet. These addresses are globally unique.</li>
+            <li><strong>Private IP Address</strong>: An IP address that is used within a private network and not accessible directly over the internet. These addresses can be reused in different private networks.</li>
+        </ol>
+        <h3 id="how-ip-addresses-work">How IP Addresses Work</h3>
+        <ol>
+            <li><strong>Addressing and Routing</strong>: IP addresses identify devices on a network and provide the information necessary for routing packets of data from the source to the destination.</li>
+            <li><strong>Subnetting</strong>: The practice of dividing a network into smaller, more manageable subnetworks. Subnetting allows for more efficient use of IP addresses and improves network management and security.</li>
+            <li><strong>NAT (Network Address Translation)</strong>: A method used by routers to translate private IP addresses into public IP addresses, allowing multiple devices on a local network to share a single public IP address.</li>
+        </ol>
+        <h3 id="pros-and-cons-of-ip-addresses">Pros and Cons of IP Addresses</h3>
+        <h4 id="pros">Pros</h4>
+        <ol>
+            <li><strong>Unique Identification</strong>: Each device on a network can be uniquely identified and located using its IP address.</li>
+            <li><strong>Scalability</strong>: IP addressing schemes, especially with IPv6, can accommodate the growing number of devices on the internet.</li>
+            <li><strong>Flexibility</strong>: Both static and dynamic IP addressing allows for a flexible network configuration based on the needs of the devices and network.</li>
+            <li><strong>Interoperability</strong>: IP addresses enable devices from different manufacturers and operating systems to communicate seamlessly over networks.</li>
+        </ol>
+        <h4 id="cons">Cons</h4>
+        <ol>
+            <li><strong>IPv4 Address Exhaustion</strong>: The limited number of IPv4 addresses led to address exhaustion, prompting the need for IPv6 adoption.</li>
+            <li><strong>Security Risks</strong>: Public IP addresses can expose devices to potential security threats, such as hacking and DDoS attacks.</li>
+            <li><strong>Complexity of Management</strong>: Managing IP addresses, especially in large networks, can be complex and requires proper planning and documentation.</li>
+            <li><strong>Transition to IPv6</strong>: The transition from IPv4 to IPv6 can be challenging due to compatibility issues and the need for updated network infrastructure.</li>
+        </ol>
+        <h3 id="additional-resources">Additional Resources</h3>
+        <ul>
+            <li><strong>IETF (Internet Engineering Task Force)</strong>: Official standards and protocols related to IP addressing. <a href="https://www.ietf.org/standards/ip/">IETF IP Standards</a></li>
+            <li><strong>ARIN (American Registry for Internet Numbers)</strong>: Information on IP address allocation and management in North America. <a href="https://www.arin.net/">ARIN</a></li>
+            <li><strong>IPv6 Forum</strong>: Resources and information on IPv6 deployment and adoption. <a href="https://www.ipv6forum.com/">IPv6 Forum</a></li>
+        </ul>
     </div>
 {% endblock %}

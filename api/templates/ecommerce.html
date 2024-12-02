@@ -3,16 +3,47 @@
 {% block content %}
     <div class="title">
         <h1>💸 E-Commerce</h1>
-        <h3>An informative page about E-Commerce</h3>
+        <h3>how online shopping works</h3>
     </div>
     <div class="description">
-        <p id="ecommerce-desc">
-            Electronic Commerce is a term that describes selling products on a digital market, usually either business-to-business (B2B) or business-to-consumer (B2C). The process begins with a seller (either business or individual) listing their item on an online marketplace such as Amazon or Ebay. The customer (either another business or a direct consumer) finds the product and buys it online. Digital products are delivered to the buyer immediately, while physical products are shipped to the buyer’s chosen address. Consumers are also able to sell directly to one another using intermediaries such as Facebook Marketplace and Ebay, or  even selling directly to a business. For instance, some artists sell their work for display in other businesses, or when photographers sell photos to stock photo companies for use online.
-
-<br><br>Ecommerce is more convenient than physical shopping as you can buy anything ranging from furniture to food just from a smartphone. Listing a product on an online marketplace also allows sellers to include more information about a certain product in a more accessible way than small text or a label next to a price. It is also cheaper for businesses as digital marketplaces do not cost the rent that a physical shop would incur, and has more growth potential as location is not as much of a roadblock compared to physical shops.
-
-<br><br>However, the anonymity that the internet provides leaves more opportunities for malpractice and scamming that a physical shop would not have, leading to a lower level of trust from customers. Instead of looking at a picture of a product that could be doctored or completely fake, a real shop would allow a customer to physically see a product and assess its real world condition before a purchase is made. Advertising would also be harder than in real life where people could simply see a store randomly by walking near it, as the internet as a whole is a much larger ecosystem, so the chances of encountering a digital store is much lower.
-</p>
-        <img src="{{ url_for("static", filename="images/graphic.jpg") }}" alt="cool graphic of the internet"/>
+        <p>eCommerce, or electronic commerce, refers to the buying and selling of goods and services over the internet. It encompasses a wide range of business activities, including online shopping, electronic payments, internet banking, and online auctions. eCommerce has revolutionised the way businesses operate and consumers shop, providing convenience, efficiency, and a global reach.</p>
+        <h3 id="key-concepts-in-ecommerce">Key Concepts in eCommerce</h3>
+        <ol>
+            <li><strong>Online Storefront</strong>: A website or platform where businesses display their products and services for sale. Customers can browse, select, and purchase items online.</li>
+            <li><strong>Shopping Cart</strong>: A virtual cart that allows customers to collect items they want to purchase and proceed to checkout.</li>
+            <li><strong>Payment Gateway</strong>: A service that authorises and processes online payments. It securely connects the online store with financial institutions to complete transactions.</li>
+            <li><strong>Digital Marketing</strong>: Strategies used to promote products and services online, including search engine optimisation (SEO), social media marketing, email marketing, and pay-per-click (PPC) advertising.</li>
+            <li><strong>Supply Chain Management</strong>: The management of the flow of goods and services from suppliers to customers, including inventory management, order fulfillment, and logistics.</li>
+        </ol>
+        <h3 id="types-of-ecommerce-models">Types of eCommerce Models</h3>
+        <ol>
+            <li><strong>Business-to-Consumer (B2C)</strong>: Businesses sell products and services directly to consumers. Examples include online retailers like Amazon and eBay.</li>
+            <li><strong>Business-to-Business (B2B)</strong>: Businesses sell products and services to other businesses. Examples include wholesale suppliers and manufacturers.</li>
+            <li><strong>Consumer-to-Consumer (C2C)</strong>: Consumers sell products and services to other consumers. Examples include online marketplaces like eBay and Craigslist.</li>
+            <li><strong>Consumer-to-Business (C2B)</strong>: Consumers sell products and services to businesses. Examples include freelance platforms like Upwork and Fiverr.</li>
+        </ol>
+        <h3 id="pros-and-cons-of-ecommerce">Pros and Cons of eCommerce</h3>
+        <h4 id="pros">Pros</h4>
+        <ol>
+            <li><strong>Global Reach</strong>: eCommerce allows businesses to reach customers worldwide, breaking geographical barriers.</li>
+            <li><strong>Convenience</strong>: Customers can shop online 24/7 from the comfort of their homes.</li>
+            <li><strong>Lower Costs</strong>: eCommerce reduces the need for physical storefronts, saving on rent and utilities.</li>
+            <li><strong>Personalisation</strong>: Businesses can use data analytics to personalise marketing efforts and improve customer experiences.</li>
+            <li><strong>Scalability</strong>: eCommerce platforms can easily scale to handle increased traffic and sales volumes.</li>
+        </ol>
+        <h4 id="cons">Cons</h4>
+        <ol>
+            <li><strong>Security Risks</strong>: eCommerce sites are vulnerable to cyber attacks, data breaches, and fraud.</li>
+            <li><strong>Technical Issues</strong>: Website downtime, slow loading times, and technical glitches can negatively impact sales and customer satisfaction.</li>
+            <li><strong>Lack of Personal Touch</strong>: Online shopping lacks the personal interaction and instant gratification of in-store shopping.</li>
+            <li><strong>Shipping Costs and Delays</strong>: Shipping costs and delivery delays can deter customers and affect their shopping experience.</li>
+            <li><strong>Legal and Regulatory Compliance</strong>: Businesses must navigate complex regulations and compliance issues related to online sales, data privacy, and consumer protection.</li>
+        </ol>
+        <h3 id="additional-resources">Additional Resources</h3>
+        <ul>
+            <li><strong>BigCommerce</strong>: An eCommerce platform that provides tools and resources for online businesses. <a href="https://www.bigcommerce.com/">BigCommerce</a></li>
+            <li><strong>eCommerce Fuel</strong>: A community and resource site for eCommerce entrepreneurs. <a href="https://www.ecommercefuel.com/">eCommerce Fuel</a></li>
+        </ul>
+        <img src="{{ url_for("static", filename="images/ecommerce.png") }}" alt="diagram showing types of ecommerce"/>
     </div>
 {% endblock %}

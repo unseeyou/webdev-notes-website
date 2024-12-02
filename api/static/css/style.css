@@ -30,9 +30,7 @@ main {
 }
 
 .example {
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-top: 30px;
+    margin: 30px 20%;
 }
 
 .title {
@@ -85,7 +83,7 @@ main {
 .description img {
     width: 70%;
     margin-top: 3%;
-    border-radius: 200px;
+    border-radius: 10px;
 }
 
 .description ul {
@@ -103,7 +101,7 @@ main {
 .description a {
     color: #268e05;
     text-decoration-line: none;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
     font-style: italic;
 }
@@ -270,4 +268,12 @@ input[type="radio"] {
 input[type="radio"]:checked {
   /* Add styles for the checked state */
   background-color: #343a71;
+}
+
+.topbutton {
+    color: antiquewhite;
+    text-align: center;
+    padding: 1vh;
+    display: block;
+    margin: 0 auto 2vh;
 }
