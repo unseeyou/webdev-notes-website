@@ -181,7 +181,7 @@ nav {
 }
 
 .sidebar-heading {
-    font-size: 24px;
+    font-size: 23px;
     text-align: center;
     padding: 1vh;
     border: mediumaquamarine 10px solid;
@@ -193,6 +193,7 @@ nav {
     padding: 1vh;
     background: transparent;
     border: mediumaquamarine 1px solid;
+    font-size-adjust: 0.45;
 }
 
 .list-group-item:hover {
