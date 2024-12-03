@@ -106,6 +106,33 @@ main {
     font-style: italic;
 }
 
+.description table {
+    width: 80%;
+    display: block;
+    margin: auto;
+    text-align: left;
+}
+
+.description tr{
+    background-color: floralwhite;
+    border: black 1px solid;
+}
+
+.description tr:hover {
+    background-color: gainsboro;
+}
+
+.description th {
+    background-color: #3a839e;
+    color: antiquewhite;
+    padding: 0.5vh;
+    text-align: left;
+}
+
+.description td {
+    padding: 0.5vh;
+}
+
 header {
     color: #ffffff;
     background-color: #343a71;
@@ -318,4 +345,21 @@ input[type="radio"]:checked {
     color: antiquewhite;
     font-style: normal;
     text-decoration: none;
+}
+
+.glossarybutton {
+    display: block;
+    width: 50%;
+    text-align: right;
+}
+
+#glossarySearchTerm {
+    width: 35%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #f8f8f8;
 }
