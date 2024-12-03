@@ -30,9 +30,7 @@ main {
 }
 
 .example {
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-top: 30px;
+    margin: 30px 20%;
 }
 
 .title {
@@ -85,7 +83,7 @@ main {
 .description img {
     width: 70%;
     margin-top: 3%;
-    border-radius: 200px;
+    border-radius: 10px;
 }
 
 .description ul {
@@ -103,7 +101,7 @@ main {
 .description a {
     color: #268e05;
     text-decoration-line: none;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
     font-style: italic;
 }
@@ -181,7 +179,7 @@ nav {
 }
 
 .sidebar-heading {
-    font-size: 24px;
+    font-size: 23px;
     text-align: center;
     padding: 1vh;
     border: mediumaquamarine 10px solid;
@@ -193,6 +191,7 @@ nav {
     padding: 1vh;
     background: transparent;
     border: mediumaquamarine 1px solid;
+    font-size-adjust: 0.45;
 }
 
 .list-group-item:hover {
@@ -269,4 +268,54 @@ input[type="radio"] {
 input[type="radio"]:checked {
   /* Add styles for the checked state */
   background-color: #343a71;
+}
+
+.topbutton {
+    color: antiquewhite;
+    text-align: center;
+    padding: 1vh;
+    display: none;
+    margin: 0 auto 2vh;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 6vh;
+}
+
+.cards .card {
+    margin: 2vh;
+}
+
+.cards img {
+    border-radius: 10px;
+    width: 90%;
+    margin: 1vh auto;
+    height: 50%;
+}
+
+.cards a {
+    color: antiquewhite;
+    font-style: normal;
+    text-decoration: none;
+}
+
+.quizcard {
+    display: block;
+    margin: 2vh auto;
+}
+
+.quizcard img{
+    border-radius: 10px;
+    width: 90%;
+    margin: 1vh auto;
+    height: 50%;
+}
+
+.quizcard a {
+    color: antiquewhite;
+    font-style: normal;
+    text-decoration: none;
 }

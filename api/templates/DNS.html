@@ -3,19 +3,48 @@
 {% block content %}
     <div class="title">
         <h1>🪧 Domain Name Systems (DNS)</h1>
-        <h3>An informative page about Domain Name Systems</h3>
+        <h3>the internet's phone book</h3>
     </div>
     <div class="description">
-        <p id="data-packets-desc">
-            Domain name systems are the internet equivalent of a phone book. While each website can technically be connected to by its raw IP address, it is harder to remember than something simpler such as “google.com”.<br><br>
-
-The DNS is organised hierarchically, with a structured naming system to ensure that domain names are unique and globally resolvable. Different parts of the name are separated by “.”s. DNS uses a series of queries and responses to find the correct address for a given name, starting from the root servers that know the top-level domains like .com, .org, .edu, etc. DNS also supports other types of records, such as mail exchange (MX) records that specify the servers that handle email for a domain, or text (TXT) records that provide additional information or verification.<br><br>
-
-Domain Name Systems are great because they provide easy to remember addresses to locations on the internet, are fast as they are part of a high speed internet, and easy to use as all the work to resolve the address of a site is done on the backend. It also allows for techniques to cope with high traffic such as load balancing, where several servers share requests that would not be possible if all the traffic were directed to one IP address. Additionally, the multiple servers serve as backups if one were to fail.<br><br>
-
-Unfortunately, nothing is perfectly secure on the internet, meaning domain name systems are vulnerable to cyberattacks that redirect users who attempt to access the content of a website to the attacker’s specified location. All the DNS servers are controlled by ICANN. ICANN is a non-profit organisation which belongs to one country. This means that if any rules and regulations of the country were to change, then the company policies may also change. Since all DNS servers are connected, errors may be hard to debug as there is a large amount of area where the issue may originate from.<br><br>
-
-        </p>
-        <img src="{{ url_for("static", filename="images/graphic.jpg") }}" alt="cool graphic of the internet"/>
+        <p>The Domain Name System (DNS) is a hierarchical and decentralized naming system used to translate human-readable domain names (like <a href="http://www.example.com">www.example.com</a>) into numerical IP addresses (like 192.0.2.1) that computers use to identify each other on the network. DNS is essential for the functionality of the internet, making it possible for users to access websites using domain names instead of IP addresses.</p>
+        <h3 id="key-concepts-in-dns">Key Concepts in DNS</h3>
+        <ol>
+            <li><strong>Domain Names</strong>: Human-readable addresses of websites (e.g., <a href="http://www.example.com">www.example.com</a>). Domain names are easier to remember than numerical IP addresses.</li>
+            <li><strong>IP Addresses</strong>: Numerical labels assigned to devices on a network (e.g., 192.0.2.1 for IPv4 or 2001:db8::1 for IPv6). IP addresses are used for routing data to the correct location.</li>
+            <li><strong>DNS Records</strong>: Entries in the DNS database that provide information about domain names and their corresponding IP addresses. Common types include A records, AAAA records, CNAME records, MX records, and TXT records.</li>
+            <li><strong>DNS Server</strong>: A server that stores DNS records and responds to queries from clients. Types of DNS servers include authoritative DNS servers, recursive DNS servers, and caching DNS servers.</li>
+            <li><strong>Root Servers</strong>: The top-level DNS servers in the hierarchical structure that provide information about the authoritative servers for top-level domains (TLDs).</li>
+        </ol>
+        <h3 id="how-dns-works">How DNS Works</h3>
+        <ol>
+            <li><strong>Querying</strong>: When a user enters a domain name in their browser, a DNS query is initiated to find the corresponding IP address.</li>
+            <li><strong>Recursive DNS Server</strong>: The user&#39;s device contacts a recursive DNS server, which either responds with a cached IP address or queries other DNS servers on behalf of the user.</li>
+            <li><strong>Root Server</strong>: If the recursive DNS server doesn&#39;t have the answer, it queries a root server, which directs it to the appropriate top-level domain (TLD) server.</li>
+            <li><strong>TLD Server</strong>: The TLD server directs the query to the authoritative DNS server for the specific domain.</li>
+            <li><strong>Authoritative DNS Server</strong>: The authoritative server provides the IP address for the requested domain name, which is then returned to the user&#39;s device.</li>
+            <li><strong>Caching</strong>: The recursive DNS server caches the response for future queries, improving efficiency and reducing query times.</li>
+        </ol>
+        <h3 id="pros-and-cons-of-dns">Pros and Cons of DNS</h3>
+        <h4 id="pros">Pros</h4>
+        <ol>
+            <li><strong>User-Friendly</strong>: Allows users to access websites using easy-to-remember domain names instead of numerical IP addresses.</li>
+            <li><strong>Scalable</strong>: Can handle a large number of domain names and IP addresses, accommodating the growth of the internet.</li>
+            <li><strong>Decentralized</strong>: The hierarchical structure and distribution of DNS servers enhance reliability and reduce the risk of single points of failure.</li>
+            <li><strong>Efficient</strong>: Caching mechanisms improve query response times and reduce the load on DNS servers.</li>
+        </ol>
+        <h4 id="cons">Cons</h4>
+        <ol>
+            <li><strong>Security Risks</strong>: DNS is susceptible to attacks such as DNS spoofing, cache poisoning, and DDoS attacks.</li>
+            <li><strong>Complexity</strong>: Managing and configuring DNS records and servers can be complex, requiring specialized knowledge and skills.</li>
+            <li><strong>Dependency</strong>: Reliance on DNS means that issues or failures in the system can disrupt access to websites and online services.</li>
+            <li><strong>Latency</strong>: Initial DNS queries may experience latency, especially if multiple DNS servers need to be queried.</li>
+        </ol>
+        <h3 id="additional-resources">Additional Resources</h3>
+        <ul>
+            <li><strong>DNS Made Easy</strong>: A comprehensive guide to understanding how DNS works. <a href="https://www.dnsmadeeasy.com/">DNS Made Easy</a></li>
+            <li><strong>IETF DNS Standards</strong>: Official standards and protocols related to DNS by the Internet Engineering Task Force (IETF). <a href="https://www.ietf.org/topics/dns/">IETF DNS Standards</a></li>
+            <li><strong>DNS Security Extensions (DNSSEC)</strong>: Learn about DNSSEC and how it adds security to the DNS infrastructure. <a href="https://www.icann.org/resources/pages/dnssec-what-is-it-2019-03-05-en">DNSSEC</a></li>
+        </ul>
+        <img src="{{ url_for("static", filename="images/DNS.png") }}" alt="graphic depicting an example DNS record sequence"/>
     </div>
 {% endblock %}

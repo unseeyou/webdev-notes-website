@@ -3,20 +3,48 @@
 {% block content %}
     <div class="title">
         <h1>📦 Data Packets</h1>
-        <h3>An informative page about Data packets</h3>
+        <h3>how data is sent across the web</h3>
     </div>
     <div class="description">
-        <p id="data-packets-desc">
-            When information is sent over the internet or any other modern network, it is sent in the form of packets.
-            They are made by breaking raw data into smaller chunks.
-            By breaking the data into smaller chunks, we can ensure that the information is sent in a more efficient and manageable way.
-            When these smaller chunks of data reach their destination, they are reassembled back into the original data.
-            the International Organization for Standardization (ISO) developed the Open Systems Interconnection (OSI) model,
-            which identifies specific data packet layers and maintains standards for each.
-            These standards form the foundation for the modern use of data packets in diverse network scenarios.
-            <br><br>
-            Error detection is possible through packet headers and checksums, and data packets allow for load balancing and congestion control in networks which in turn improves data transfer speeds. However, packet corruption and loss can still occur and lead to transmission errors, and latency issues may arise from the need to reassemble data packets into complete forms. Overhead from packet headers and other such metadata can increase bandwidth usage that would not be needed or used as much if data was not split into many small chunks and rather all sent in one large chunk.
-        </p>
-    <img src="{{ url_for("static", filename="images/graphic.jpg") }}" alt="cool graphic of the internet"/>
-        </div>
+        <p>Data packets are units of data formatted for internet transfer. When information is sent over a network, it is broken down into smaller packets, which are then transmitted separately and reassembled at the destination. This process allows for efficient and reliable data transmission across networks.</p>
+        <h3 id="key-concepts-in-data-packets">Key Concepts in Data Packets</h3>
+        <ol>
+            <li><strong>Packet Switching</strong>: A method of data transmission where data is broken into packets that are sent independently and can follow different paths to the destination.</li>
+            <li><strong>Protocol</strong>: A set of rules that define how data packets are formatted and transmitted over a network. Common protocols include TCP/IP (Transmission Control Protocol/Internet Protocol).</li>
+            <li><strong>Header and Payload</strong>: Each data packet consists of a header, which contains control information (such as source and destination addresses), and a payload, which is the actual data being transmitted.</li>
+            <li><strong>IP Address</strong>: A unique identifier assigned to each device on a network, used to route packets to their correct destinations.</li>
+            <li><strong>Checksum</strong>: A value used to verify the integrity of a packet&#39;s data, ensuring that it has not been altered during transmission.</li>
+        </ol>
+        <h3 id="common-uses-of-data-packets">Common Uses of Data Packets</h3>
+        <ol>
+            <li><strong>Internet Browsing</strong>: Webpages are transmitted to your browser in data packets.</li>
+            <li><strong>Email</strong>: Emails are broken into packets for transmission over the internet.</li>
+            <li><strong>Video Streaming</strong>: Streaming services use data packets to deliver video content in real-time.</li>
+            <li><strong>VoIP (Voice over Internet Protocol)</strong>: Voice data is transmitted as packets over the internet during calls.</li>
+            <li><strong>File Transfers</strong>: Data packets are used to transfer files over networks, such as through FTP (File Transfer Protocol).</li>
+        </ol>
+        <h3 id="pros-and-cons-of-data-packets">Pros and Cons of Data Packets</h3>
+        <h4 id="pros">Pros</h4>
+        <ol>
+            <li><strong>Efficiency</strong>: Packet switching makes efficient use of network resources, as packets can take different paths to avoid congestion.</li>
+            <li><strong>Reliability</strong>: If a packet is lost or corrupted during transmission, only that packet needs to be resent, not the entire message.</li>
+            <li><strong>Scalability</strong>: Networks can easily scale to handle increased traffic by adding more routes for packets.</li>
+            <li><strong>Fault Tolerance</strong>: The network can reroute packets around failed or congested nodes, ensuring continuous data flow.</li>
+            <li><strong>Flexibility</strong>: Packet switching can handle a variety of data types and sizes, from small text messages to large multimedia files.</li>
+        </ol>
+        <h4 id="cons">Cons</h4>
+        <ol>
+            <li><strong>Latency</strong>: Packets may experience delays, especially if they take different paths to the destination.</li>
+            <li><strong>Overhead</strong>: Each packet requires a header, which adds to the overall data being transmitted and can reduce efficiency.</li>
+            <li><strong>Complexity</strong>: Managing and reassembling packets requires complex protocols and algorithms.</li>
+            <li><strong>Security Risks</strong>: Data packets can be intercepted and analysed, posing privacy and security threats.</li>
+        </ol>
+        <h3 id="additional-resources">Additional Resources</h3>
+        <ul>
+            <li><strong>Internet Protocol (IP)</strong>: Learn more about the fundamental protocol used for packet-switched data transmission. <a href="https://www.ietf.org/rfc/rfc791.txt">Internet Protocol (IP)</a></li>
+            <li><strong>Transmission Control Protocol (TCP)</strong>: Understand the protocol responsible for ensuring reliable data transmission. <a href="https://www.ietf.org/rfc/rfc793.txt">Transmission Control Protocol (TCP)</a></li>
+            <li><strong>Network Basics</strong>: Explore the basics of networking and data packets. <a href="https://www.cisco.com/c/en/us/solutions/small-business/resource-center/networking/networking-basics.html">Network Basics</a></li>
+        </ul>
+        <img src="{{ url_for("static", filename="images/packet.jpg") }}" alt="diagram showing example structure of data packets"/>
+    </div>
 {% endblock %}

@@ -38,6 +38,9 @@ def inject_sidebar():
             "Web Security": url_for("web_security"),
             "Privacy": url_for("privacy"),
             "Machine Readable Data": url_for("machine_data"),
+            "Data Mining": url_for("data_mining"),
+            "Metadata": url_for("metadata"),
+            "Streaming Service Management": url_for("streaming_service_management"),
         }
     }
 
@@ -110,6 +113,21 @@ def machine_data():
     return render_template("machine_data.html")
 
 
+@app.route("/data-mining")
+def data_mining():
+    return render_template("data_mining.html")
+
+
+@app.route("/metadata")
+def metadata():
+    return render_template("metadata.html")
+
+
+@app.route("/streaming-service-management")
+def streaming_service_management():
+    return render_template("streaming_service_management.html")
+
+
 @app.route("/result")
 def result():
     score = session.get("score", 0)
@@ -143,6 +161,9 @@ def search():
         "websec": url_for("web_security"),
         "privacy": url_for("privacy"),
         "machine_data": url_for("machine_data"),
+        "data_mining": url_for("data_mining"),
+        "metadata": url_for("metadata"),
+        "streaming_service_management": url_for("streaming_service_management"),
     }
 
     results = []
@@ -219,4 +240,3 @@ def quiz():
 if __name__ == "__main__":
     app.run()
     # TODO: split pages into sections, e.g. Pros, Cons
-    # TODO: pin the sidebar so it does not scroll with the page (maybe separate scroll)
