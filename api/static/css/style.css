@@ -274,6 +274,48 @@ input[type="radio"]:checked {
     color: antiquewhite;
     text-align: center;
     padding: 1vh;
-    display: block;
+    display: none;
     margin: 0 auto 2vh;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 6vh;
+}
+
+.cards .card {
+    margin: 2vh;
+}
+
+.cards img {
+    border-radius: 10px;
+    width: 90%;
+    margin: 1vh auto;
+    height: 50%;
+}
+
+.cards a {
+    color: antiquewhite;
+    font-style: normal;
+    text-decoration: none;
+}
+
+.quizcard {
+    display: block;
+    margin: 2vh auto;
+}
+
+.quizcard img{
+    border-radius: 10px;
+    width: 90%;
+    margin: 1vh auto;
+    height: 50%;
+}
+
+.quizcard a {
+    color: antiquewhite;
+    font-style: normal;
+    text-decoration: none;
 }

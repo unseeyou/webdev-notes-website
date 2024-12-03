@@ -3,17 +3,39 @@
 {% block content %}
     <div class="title">
         <h1>💾 Progressive Web Apps (PWAs)</h1>
-        <h3>An informative page about Progressive Web Apps</h3>
+        <h3>web apps that work offline! (somewhat)</h3>
     </div>
     <div class="description">
-        <p id="pwa-desc">
-            A PWA is a website that has been built specifically to provide a similar/the same user experience as a fully fledged computer application. PWAs use techniques such as caching and a mix of client-side and server-side computation to work offline when the internet is not available. PWAs can run as websites, or installed to the device through a browser such as google chrome.
-
-<br><br>PWAs are much more lightweight compared to traditional natively run apps, allowing lower end hardware to run them. Since they are able to be accessed as websites, their installation is as simple as installing the link to the PWA as an application on the computer, a much faster method of installation than downloading every single requirement for a locally run application. This also means the developer does not have to use different technologies during development for different systems, and can just make one version of the app that is able to run on all modern systems. PWAs are able to use all of the most prevalent features of a conventional app such as background processes and OS integration such as using the camera of a device.
-
-<br><br>On the other hand, being a website, offline functionality is limited to whatever was cached when there was still an internet connection. The battery drain is also higher as the web app tends to use higher level code such as javascript which takes more processing power to run than a lower level language like C. There is also a slight overhead as a browser must be active to use the PWA. There could be an uneven amount of support for different browsers and operating systems, as some PWAs may rely on technologies that are only implemented in chromium and not able to be run on Firefox or any other non-chromium browser.
-
-    </p>
-        <img src="{{ url_for("static", filename="images/graphic.jpg") }}" alt="cool graphic of the internet"/>
+        <p>Progressive Web Apps (PWAs) are web applications that leverage modern web technologies to provide a user experience similar to native mobile applications. PWAs offer the advantages of both web and mobile apps, including offline functionality, push notifications, and device hardware access, all within a web browser.</p>
+        <h3 id="key-concepts-in-pwas">Key Concepts in PWAs</h3>
+        <ol>
+            <li><strong>Service Workers</strong>: Background scripts that enable offline functionality, push notifications, and background data syncing. Service workers cache resources to ensure the app can function without an internet connection.</li>
+            <li><strong>Web App Manifest</strong>: A JSON file that defines the metadata of the PWA, such as the app&#39;s name, icons, theme color, and display mode. It allows users to add the PWA to their home screen.</li>
+            <li><strong>Responsive Design</strong>: Ensures that the PWA provides an optimal viewing experience across various devices and screen sizes.</li>
+            <li><strong>HTTPS</strong>: PWAs must be served over HTTPS to ensure secure communication between the app and the server.</li>
+            <li><strong>Push Notifications</strong>: Allows PWAs to send real-time updates and notifications to users, even when the app is not open.</li>
+        </ol>
+        <h3 id="benefits-of-pwas">Benefits of PWAs</h3>
+        <ol>
+            <li><strong>Offline Functionality</strong>: Service workers enable PWAs to work offline or in low-network conditions, improving reliability and user experience.</li>
+            <li><strong>No Installation Required</strong>: Users can access PWAs directly from their web browsers without needing to download and install them from app stores.</li>
+            <li><strong>Cross-Platform Compatibility</strong>: PWAs work seamlessly across different devices and operating systems, reducing development costs and complexity.</li>
+            <li><strong>Improved Performance</strong>: PWAs are optimized for speed and performance, ensuring fast load times and smooth interactions.</li>
+            <li><strong>Engagement</strong>: Features like push notifications and home screen icons enhance user engagement and retention.</li>
+        </ol>
+        <h3 id="challenges-of-pwas">Challenges of PWAs</h3>
+        <ol>
+            <li><strong>Browser Support</strong>: While most modern browsers support PWAs, there may be inconsistencies and limitations in older browsers.</li>
+            <li><strong>Limited Access to Device Features</strong>: PWAs may not have access to all device features available to native apps, such as advanced sensors and system-level APIs.</li>
+            <li><strong>Discoverability</strong>: Since PWAs are not listed in app stores, users may find them less discoverable compared to native apps.</li>
+            <li><strong>Security</strong>: Ensuring the security of data and protecting against vulnerabilities requires continuous monitoring and updates.</li>
+            <li><strong>User Expectations</strong>: Users familiar with native apps might have higher expectations for performance and features, which PWAs must meet to compete effectively.</li>
+        </ol>
+        <h3 id="additional-resources">Additional Resources</h3>
+        <ul>
+            <li><strong>Google Developers on PWAs</strong>: Comprehensive guide and resources on building Progressive Web Apps. <a href="https://developers.google.com/web/progressive-web-apps">Google Developers</a></li>
+            <li><strong>MDN Web Docs</strong>: In-depth documentation on Progressive Web Apps and related technologies. <a href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps">MDN Web Docs</a></li>
+            <li><strong>PWA.rocks</strong>: A collection of Progressive Web App examples and inspiration. <a href="https://github.com/pwarocks/pwa.rocks">PWA.rocks Archive</a></li>
+        </ul>
     </div>
 {% endblock %}
