@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Notes - Glossary{% endblock %}
+
+{% block content %}
+    <div class="title">
+        <h1>🔎 Glossary</h1>
+        <h3>of key terms</h3>
+    </div>
+    <div class="description">
+    <input type="text" id="glossarySearchTerm" onkeyup="filterGlossary()" placeholder="Search term...">
+    {{ contents|safe }}
+    </div>
+{% endblock %}

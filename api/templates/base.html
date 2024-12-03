@@ -39,6 +39,9 @@
                             <img src="{{ url_for("static", filename="images/icon.png") }}" alt="logo" style="height: 50px" />
                             Cool Software Notes
                             </a>
+                            <div class="glossarybutton">
+                                <a class="btn btn-outline-light" href="/glossary">Glossary</a>
+                            </div>
                             <form class="d-flex" role="search" method="POST" action="{{ url_for("search") }}">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query">
                             <button class="btn btn-outline-success" type="submit">Search</button>

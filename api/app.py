@@ -1,9 +1,11 @@
 import json
 import os
+import io
 import re
 from random import shuffle
 from dotenv import load_dotenv
 from bs4 import BeautifulSoup
+from pandas import read_csv
 
 from flask import Flask, render_template, url_for, request, redirect, session
 
@@ -16,7 +18,7 @@ questions = None
 def get_questions() -> list[dict[str, str | list[str]]]:
     global questions
     if questions is None:
-        questions = json.loads(render_template("questions.json"))
+        questions = json.loads(render_template("questions.json"))  # instead of open() for vercel compatibility
     return questions
 
 
@@ -126,6 +128,13 @@ def metadata():
 @app.route("/streaming-service-management")
 def streaming_service_management():
     return render_template("streaming_service_management.html")
+
+
+@app.route("/glossary")
+def glossary():
+    data = io.StringIO(render_template("glossary.csv"))
+    contents = read_csv(data).to_html(index=False, table_id="glossary")
+    return render_template("glossary.html", contents=contents)
 
 
 @app.route("/result")
