@@ -22,5 +22,5 @@ distribution = false
 
 [tool.pdm.scripts]
 install = "pdm install"
-run = "py src/server.py"
+run = "py api/index.py"
 start = { composite = ["install", "run"] }
