@@ -3,5 +3,5 @@ from waitress import serve
 
 if __name__ == "__main__":
     print("Starting up...")
-    serve(app, host='0.0.0.0', port=6979)
+    serve(app, host='0.0.0.0', port=6970)
     print("Server Closed")
